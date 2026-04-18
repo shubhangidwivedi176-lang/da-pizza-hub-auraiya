@@ -28,6 +28,14 @@ body {
   line-height: 1.5;
 }
 
+body.locked {
+  overflow: hidden;
+}
+
+body.locked > :not(.password-gate) {
+  visibility: hidden;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -237,6 +245,73 @@ h3 {
   color: var(--tomato);
   background: #fff;
   border-color: var(--line);
+}
+
+.password-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(120deg, rgba(33, 24, 23, 0.88), rgba(201, 31, 36, 0.86)),
+    url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1600&q=80")
+      center / cover;
+}
+
+.password-gate[hidden] {
+  display: none;
+}
+
+.gate-card {
+  width: min(480px, 100%);
+  padding: 32px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.gate-card h1 {
+  color: var(--ink);
+  font-size: 2.3rem;
+}
+
+.gate-card p {
+  color: var(--muted);
+}
+
+.gate-card label {
+  display: block;
+  margin: 22px 0 8px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.gate-card input {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--ink);
+  font: inherit;
+}
+
+.gate-card input:focus {
+  outline: 3px solid rgba(201, 31, 36, 0.18);
+  border-color: var(--tomato);
+}
+
+.gate-card .button {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.gate-error {
+  margin: 10px 0 0;
+  color: var(--tomato) !important;
+  font-weight: 800;
 }
 
 .hero .button.ghost,

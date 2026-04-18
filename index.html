@@ -31,7 +31,28 @@
       }
     </script>
   </head>
-  <body>
+  <body class="locked">
+    <section class="password-gate" id="password-gate" aria-labelledby="gate-title">
+      <form class="gate-card" id="password-form">
+        <p class="eyebrow">Private client preview</p>
+        <h1 id="gate-title">Da Pizza Hub website preview</h1>
+        <p>
+          This preview is password protected. Enter the review password to see the website.
+        </p>
+        <label for="preview-password">Password</label>
+        <input
+          id="preview-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Enter preview password"
+          required
+        />
+        <p class="gate-error" id="gate-error" role="alert" hidden>Incorrect password. Please try again.</p>
+        <button class="button primary" type="submit">Open Preview</button>
+      </form>
+    </section>
+
     <header class="site-header" id="top">
       <a class="brand" href="#top" aria-label="Da Pizza Hub home">
         <span class="brand-mark">DPH</span>
